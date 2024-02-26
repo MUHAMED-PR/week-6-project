@@ -1,0 +1,91 @@
+<% include('../layouts/header.ejs') %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center mb-4">Welcome, <%= user.name %></h2>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <td class="fw-bold">Email</td>
+                        <td><%= user.email  %></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Mobile</td>
+                        <td><%= user.mobile  %></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Verified</td>
+                        <td>
+                            <% if (user.is_verified == 1) { %>
+                                <p class="text-success">True</p>
+                            <% } else { %>
+                                <p class="text-danger">False</p>
+                            <% } %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="/edit?id=<%= user._id %>" class="btn btn-primary">Edit</a>
+                <br><br>
+                <a href="/logout" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        /* background: linear-gradient(to right, #3498db, #e40505);
+         */
+         background: linear-gradient(45deg,#23a2a2,#978687,#2fb37e);
+         background-size: 400% 400%;
+        /* color: white; */
+        animation: gradientAnimation 15s ease infinite;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    .table-bordered {
+        border: 2px solid #ffffff;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    @keyframes gradientAnimtion {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+<% include('../layouts/footer.ejs') %>
